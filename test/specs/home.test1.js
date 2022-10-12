@@ -24,19 +24,19 @@ describe('the login module', () => {
 		const email = loginData[0].email;
 
 		await HomePage.loginEmailField.addValue(email);
-		await expect(HomePage.loginEmailField.getValue() == email);
+		await expect(HomePage.loginEmailField).toHaveValue(email);
 	})
 	it('should be able to enter test data into the password field', async () => {
 		const password = loginData[0].password;
 
 		await HomePage.loginPasswordField.addValue(password);
-		await expect(HomePage.loginPasswordField.getValue() == password);
+		await expect(HomePage.loginPasswordField).toHaveValue(password);
 	})
 	it('should be able to click the Sign In button and be redirected correctly', async () => {
 		await HomePage.clickLoginSignInButton();
 		
 		// Currently the page simply reloads, which clears the email and password fields.
-		await expect(HomePage.loginEmailField.getValue() == "");
-		await expect(HomePage.loginPasswordField.getValue() == "");
+		await expect(HomePage.loginEmailField).toHaveValue("");
+		await expect(HomePage.loginPasswordField).toHaveValue("");
 	})
 });
