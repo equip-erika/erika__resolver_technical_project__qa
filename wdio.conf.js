@@ -221,8 +221,9 @@ exports.config = {
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
      */
-    // beforeHook: function (test, context) {
-    // },
+    beforeHook: function (test, context) {
+        browser.setWindowSize(1920, 1080); // set standard window size
+    },
     /**
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
