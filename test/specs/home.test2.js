@@ -15,13 +15,24 @@ describe('the list module', () => {
 		await expect(HomePage.listGroup).toHaveChildren(count);
 	})
 	it('should have a specific value in the second list item', async () => {
-		const secondValue = listData[0].secondItemValue;
+		// value desired, taken from data file
+		const compareData = listData[0].secondItemValue; 
+
+		// when the value is taken from the site, it has historically included this badge text
+		const badge = await HomePage.listGroupElementBadge(2).getText(); 
+
+		// value from the site
+		var value = await HomePage.listGroupElementText(2).getText(); 
+
+		// This is the check to see if the badge text was included in the getText for the site value.
+		// If the value, when the length of the value desired is removed and the white spaced trimmed, 
+		// is the same text as the badge text, remove the badge text and trim.
+		if(value.slice(compareData.length).trim() == badge) {
+			value = await value.slice(0, value.length - badge.length).trim(); 
+		}
 		
-		// TO DO: Update test to compare exact text to exact text.
-		// listGroupElementText currently pulls the list text with the badge text.
-		// This needs to be fixed to compare text without the badge.
-		// EG the text returned is "List Item 2 4", where 4 is the badge text.
-		await expect(HomePage.listGroupElementText(2)).toHaveTextContaining(secondValue);
+		// comparing the trimmed site value to the data file value
+		await expect(value).toEqual(compareData);
 	})
 	it('should have a specific badge value for the second list item', async () => {
 		const secondBadge = listData[0].secondItemBadge;
