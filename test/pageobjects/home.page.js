@@ -17,6 +17,13 @@ class HomePage extends Page {
 	get testOneHeader() {
 		return this.header("Test 1");
 	}
+
+	/**
+	 * Get header element for Test 2.
+	 */
+	 get testTwoHeader() {
+		return this.header("Test 2");
+	}
 	
 	/**
 	 * Get login email field element.
@@ -44,6 +51,31 @@ class HomePage extends Page {
 	 */
 	clickLoginSignInButton() {
 		this.loginSignInButton.click();
+	}
+
+	/**
+	 * The list and all the contents.
+	 */
+	get listGroup() {
+		return $('//ul[@class = "list-group"]');
+	}
+
+	/**
+	 * An element in the List Group. Starts at 1.
+	 * @param {Number} elementNumber Which list element, starts at 1
+	 * @returns element for the specific list
+	 */
+	listGroupElementText(elementNumber) {
+		return $('//ul[@class = "list-group"]/li[' + elementNumber + ']');
+	}
+
+	/**
+	 * Badge element in the List Group. Starts at 1.
+	 * @param {Number} elementNumber Which list element, starts at 1
+	 * @returns badge element for the specific list
+	 */
+	listGroupElementBadge(elementNumber) {
+		return $('//ul[@class = "list-group"]/li[' + elementNumber + ']/span');
 	}
 
 	/**
