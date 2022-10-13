@@ -31,6 +31,13 @@ class HomePage extends Page {
 	 get testThreeHeader() {
 		return this.header("Test 3");
 	}
+
+	/**
+	 * Get header element for Test 4.
+	 */
+	 get testFourHeader() {
+		return this.header("Test 4");
+	}
 	
 	/**
 	 * Get login email field element.
@@ -99,6 +106,14 @@ class HomePage extends Page {
 	picklistSelect(option) {
 		this.picklistCurrentlySelected.click();
 		$(`//div[@class="dropdown-menu show"]/a[text() = "${option}"]`).click();
+	}
+
+	get primaryButton() {
+		return $('//div[@id="test-4-div"]/button[contains(@class,"btn-primary")]');
+	}
+
+	get secondaryButton() {
+		return $('//div[@id="test-4-div"]/button[contains(@class,"btn-secondary")]');
 	}
 
 	/**
