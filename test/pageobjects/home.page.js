@@ -38,6 +38,13 @@ class HomePage extends Page {
 	 get testFourHeader() {
 		return this.header("Test 4");
 	}
+
+	/**
+	 * Get header element for Test 5.
+	 */
+	 get testFiveHeader() {
+		return this.header("Test 5");
+	}
 	
 	/**
 	 * Get login email field element.
@@ -108,12 +115,46 @@ class HomePage extends Page {
 		$(`//div[@class="dropdown-menu show"]/a[text() = "${option}"]`).click();
 	}
 
+	/**
+	 * Primary button in the test 4 div.
+	 */
 	get primaryButton() {
 		return $('//div[@id="test-4-div"]/button[contains(@class,"btn-primary")]');
 	}
 
+	/**
+	 * Secondary button in the test 4 div.
+	 */
 	get secondaryButton() {
 		return $('//div[@id="test-4-div"]/button[contains(@class,"btn-secondary")]');
+	}
+
+	/**
+	 * Button for test 5.
+	 */
+	get delayedButton() {
+		return $('//button[@id="test5-button"]');
+	}
+
+	/**
+	 * Click the button that delays appearing.
+	 */
+	clickDelayedButton() {
+		this.delayedButton.click();
+	}
+
+	/**
+	 * Get the success text for clicking the button.
+	 */
+	get buttonSuccessAlert() {
+		return $('//div[@id="test5-alert"]');
+	}
+
+	/**
+	 * Get the sucecss text in its disabled state.
+	 */
+	get buttonSuccessAlertDisabled() {
+		return $('//div[@id="test5-alert"][@style="display: none;"]');
 	}
 
 	/**
