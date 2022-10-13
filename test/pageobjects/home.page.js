@@ -24,6 +24,13 @@ class HomePage extends Page {
 	 get testTwoHeader() {
 		return this.header("Test 2");
 	}
+
+	/**
+	 * Get header element for Test 3.
+	 */
+	 get testThreeHeader() {
+		return this.header("Test 3");
+	}
 	
 	/**
 	 * Get login email field element.
@@ -76,6 +83,22 @@ class HomePage extends Page {
 	 */
 	listGroupElementBadge(elementNumber) {
 		return $('//ul[@class = "list-group"]/li[' + elementNumber + ']/span');
+	}
+
+	/**
+	 * Currently selected picklist value.
+	 */
+	get picklistCurrentlySelected() {
+		return $('//div[@class = "dropdown"]/button[@id="dropdownMenuButton" and @aria-expanded="false"]');
+	}
+
+	/**
+	 * Set picklist to another value.
+	 * @param {String} option picklist option to select
+	 */
+	picklistSelect(option) {
+		this.picklistCurrentlySelected.click();
+		$(`//div[@class="dropdown-menu show"]/a[text() = "${option}"]`).click();
 	}
 
 	/**
