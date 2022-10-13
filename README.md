@@ -12,3 +12,11 @@ Please see the site > guide.html page for the technical assessment requirements.
 
 ## Things fixed outside of scope
 * On site/guide.html, updated misspelling "choise" to correct spelling "choice". 
+
+## How to run the tests
+First, Git and Node must be installed on the device you will run these tests from. Then you can follow the steps below.
+
+1. In the folder you wish to run these tests from, use the command `git init`
+2. Pull the repo in the manner you wish to.
+3. Use the command `NPM install` - this will set up your local repo.
+4. Use the command `npx wdio run ./wdio.conf.js` - this will run all the tests.
