@@ -45,6 +45,13 @@ class HomePage extends Page {
 	 get testFiveHeader() {
 		return this.header("Test 5");
 	}
+
+	/**
+	 * Get header element for Test 6.
+	 */
+	 get testSixHeader() {
+		return this.header("Test 6");
+	}
 	
 	/**
 	 * Get login email field element.
@@ -158,13 +165,23 @@ class HomePage extends Page {
 	}
 
 	/**
+	 * Count for the table cells starts in the top left, below the headers. 
+	 * @param {Number} x starts at 0, column of the table
+	 * @param {Number} y starts at 0, row of the table
+	 * @returns selector for the cell coordinates entered
+	 */
+	getTableValue(x,y) {
+		return $(`//table/tbody/tr[${x}+1]/td[${y}+1]`);
+	}
+
+	/**
 	 * Open the home page. 
 	 * @returns url for the home page
 	 */
 	open() {
 		return super.open('index.html');
 	}
-
+	
 }
 
 module.exports = new HomePage();
