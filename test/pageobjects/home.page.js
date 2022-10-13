@@ -57,21 +57,21 @@ class HomePage extends Page {
 	 * Get login email field element.
 	 */
 	get loginEmailField() {
-		return $(`//form[@class="form-signin"]/input[@type = "email"]`);
+		return $(`//form[@class="form-signin"]/input[@type="email"]`);
 	}
 
 	/**
 	 * Get login password field element.
 	 */
 	get loginPasswordField() {
-		return $(`//form[@class="form-signin"]/input[@type= "password"]`);
+		return $(`//form[@class="form-signin"]/input[@type="password"]`);
 	}
 
 	/**
 	 * Get sign in button element.
 	 */
 	get loginSignInButton() {
-		return $('//form[@class="form-signin"]/button[@type= "submit"]');
+		return $('//form[@class="form-signin"]/button[@type="submit"]');
 	}
 
 	/**
@@ -85,7 +85,7 @@ class HomePage extends Page {
 	 * The list and all the contents.
 	 */
 	get listGroup() {
-		return $('//ul[@class = "list-group"]');
+		return $('//ul[@class="list-group"]');
 	}
 
 	/**
@@ -94,7 +94,7 @@ class HomePage extends Page {
 	 * @returns element for the specific list
 	 */
 	listGroupElementText(elementNumber) {
-		return $('//ul[@class = "list-group"]/li[' + elementNumber + ']');
+		return $('//ul[@class="list-group"]/li[' + elementNumber + ']');
 	}
 
 	/**
@@ -103,14 +103,14 @@ class HomePage extends Page {
 	 * @returns badge element for the specific list
 	 */
 	listGroupElementBadge(elementNumber) {
-		return $('//ul[@class = "list-group"]/li[' + elementNumber + ']/span');
+		return $('//ul[@class="list-group"]/li[' + elementNumber + ']/span');
 	}
 
 	/**
 	 * Currently selected picklist value.
 	 */
 	get picklistCurrentlySelected() {
-		return $('//div[@class = "dropdown"]/button[@id="dropdownMenuButton" and @aria-expanded="false"]');
+		return $('//div[@class="dropdown"]/button[@id="dropdownMenuButton" and @aria-expanded="false"]');
 	}
 
 	/**
@@ -119,7 +119,7 @@ class HomePage extends Page {
 	 */
 	picklistSelect(option) {
 		this.picklistCurrentlySelected.click();
-		$(`//div[@class="dropdown-menu show"]/a[text() = "${option}"]`).click();
+		$(`//div[@class="dropdown-menu show"]/a[text()="${option}"]`).click();
 	}
 
 	/**
